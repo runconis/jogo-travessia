@@ -39,3 +39,22 @@ def sair_da_margem_b():
     pessoa1 = input('Quem vai manobrar a jangada? Favor não usar acentos: ').lower().strip()
     acao(pessoa1, margemB, margemA)
     print('Pessoas na margem A: ', margemA)
+
+# Função da travessia:
+def acao(pessoa, margem1, margem2):
+    while pessoa != 'pai' and pessoa != 'mae' and pessoa != 'policial':
+        print('Esta pessoa não sabe manobrar a jangada!')
+        pessoa = input('Quem vai manobrar jangada? Favor não usar acentos: ').lower().strip()
+
+    if pessoa == 'pai' or pessoa == 'mae' or pessoa == 'policial':
+        while pessoa not in margem1:
+            print('Esta pessoa não está nesta margem!')
+            pessoa = input('Quem vai manobrar a jangada? ').lower().strip()
+            if pessoa in margem1:
+                break
+
+    escolha = input('A pessoa vai sozinha? Sim ou nao: ').lower().strip()
+
+    while escolha != 'sim' and escolha != 'nao':
+        print('Escolha inválida!')
+        escolha = input('Esta pessoa vai sozinha? Sim ou nao: ').lower().strip()
