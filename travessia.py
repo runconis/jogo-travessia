@@ -210,3 +210,22 @@ def acao(pessoa, margem1, margem2):
                         margem1.remove(pessoa2)
                         margem2.append(pessoa2)
                         break
+
+    sleep(0.5)
+    print()
+    print('Após a travessia...')
+    sleep(0.3)
+    print('...')
+    sleep(0.3)
+    print('...')
+    sleep(0.3)
+    print('...\n')
+
+# O jogo em funcionamento:
+while True:
+    sair_da_margem_a()
+    if len(margemB) == 8:
+        print()
+        print(f'Parabéns, {nome}! Todos atravessaram em segurança! =(^_^)=')
+        break
+    sair_da_margem_b()
