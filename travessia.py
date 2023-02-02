@@ -91,3 +91,42 @@ def acao(pessoa, margem1, margem2):
         else:
             margem1.remove(pessoa)
             margem2.append(pessoa)
+
+    if escolha == 'nao':
+        if pessoa == 'pai':
+            pessoa2 = input('Quem vai junto? ').lower().strip()
+            while True:
+                if pessoa2 == 'filha1' or pessoa2 == 'filha2' or pessoa2 == 'prisioneira':
+                    print('O pai não pode ir com esta pessoa!')
+                    pessoa2 = input('Quem vai com o pai? ').lower().strip()
+                elif pessoa2 == 'policial':
+                    if 'prisioneira' in margem1 and len(margem1) > 3:
+                        print('A prisioneira não pode ficar sozinha com nenhum membro da família!')
+                        pessoa2 = input('Quem vai com o pai? ').lower().strip()
+                    elif 'mae' in margem1 and ('filho1' in margem1 or 'filho2' in margem1):
+                        print('A mãe não pode ficar sozinha com nenhum dos filhos.')
+                        pessoa2 = input('Quem vai com o pai? ').lower().strip()
+                    else:
+                        margem1.remove(pessoa)
+                        margem1.remove(pessoa2)
+                        margem2.append(pessoa)
+                        margem2.append(pessoa2)
+                        break
+                elif pessoa2 == 'filho1' and 'filho2' in margem1 and 'mae' in margem1:
+                    print('Nenhum dos filhos pode ficar sozinho com a mãe!')
+                    pessoa2 = input('Quem vai com o pai? ').lower().strip()
+                elif pessoa2 == 'filho2' and 'filho1' in margem1 and 'mae' in margem1:
+                    print('Nenhum dos filhos pode ficar sozinho com a mãe!')
+                    pessoa2 = input('Quem vai com o pai? ').lower().strip()
+                elif pessoa2 not in margem1 and pessoa2 not in margem2:
+                    print('Esta pessoa não existe!')
+                    pessoa2 = input('Quem vai com o pai? ').lower().strip()
+                elif pessoa2 not in margem1 and pessoa2 in margem2:
+                    print('Esta pessoa está na outra margem!')
+                    pessoa2 = input('Quem vai com o pai? ').lower().strip()
+                else:
+                    margem1.remove(pessoa)
+                    margem1.remove(pessoa2)
+                    margem2.append(pessoa)
+                    margem2.append(pessoa2)
+                    break
