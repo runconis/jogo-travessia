@@ -58,3 +58,36 @@ def acao(pessoa, margem1, margem2):
     while escolha != 'sim' and escolha != 'nao':
         print('Escolha inválida!')
         escolha = input('Esta pessoa vai sozinha? Sim ou nao: ').lower().strip()
+
+    if escolha == 'sim' and pessoa == 'policial':
+        if 'prisioneira' in margem1 and len(margem1) == 2:
+            margem1.remove(pessoa)
+            margem2.append(pessoa)
+        elif 'prisioneira' in margem1 and len(margem1) > 2:
+            print('A prisioneira não pode ficar sozinha com nenhum membro da família!')
+            escolha = 'nao'
+        else:
+            margem1.remove(pessoa)
+            margem2.append(pessoa)
+
+    if escolha == 'sim' and pessoa == 'pai':
+        if 'mae' in margem1 and ('filho1' in margem1 or 'filho2' in margem1):
+            print('Os filhos não podem ficar sozinhos com a mãe!')
+            escolha = 'nao'
+        elif 'prisioneira' in margem1 and len(margem1) > 2 and 'policial' not in margem1:
+            print('A prisioneira não pode ficar sozinha com nenhum membro da família!')
+            escolha = 'nao'
+        else:
+            margem1.remove(pessoa)
+            margem2.append(pessoa)
+        
+    if escolha == 'sim' and pessoa == 'mae':
+        if 'pai' in margem1 and ('filha1' in margem1 or 'filha2' in margem1):
+            print('As filhas não podem ficar sozinhas com o pai!')
+            escolha = 'nao'
+        elif 'prisioneira' in margem1 and len(margem1) > 2 and 'policial' not in margem1:
+            print('A prisioneira não pode ficar sozinha com nenhum membro da família!')
+            escolha = 'nao'
+        else:
+            margem1.remove(pessoa)
+            margem2.append(pessoa)
