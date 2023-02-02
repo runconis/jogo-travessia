@@ -19,3 +19,12 @@ print('5. Filhas não podem ficar com o pai na ausência da mãe em nenhuma das 
 print('6. Filhas não podem ser transportadas pelo pai.')
 print('7. E, por último: a prisioneira não pode ficar com os membros da família na ausência do policial. \n')
 sleep(1)
+
+# Listas para registrar a passagem das pessoas:
+margemA = ['pai', 'mae', 'filho1', 'filho2', 'filha1', 'filha2', 'policial', 'prisioneira']
+margemB = []
+
+# Início do jogo:
+print('Daqui em diante as pessoas ficarão conhecidas como:')
+print('Pai, mae, filho1, filho2, filha1, filha2, policial e prisioneira!\n')
+print('Pessoas na margem A: ', margemA)
