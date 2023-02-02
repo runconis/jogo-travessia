@@ -167,3 +167,46 @@ def acao(pessoa, margem1, margem2):
                     margem2.append(pessoa)
                     margem2.append(pessoa2)
                     break
+        else:
+            pessoa2 = input('Quem vai junto? ').lower().strip()
+            while True:
+                if pessoa2 == 'prisioneira':
+                    margem1.remove(pessoa)
+                    margem2.append(pessoa)
+                    margem1.remove(pessoa2)
+                    margem2.append(pessoa2)
+                    break
+                if pessoa2 != 'prisioneira' and 'prisioneira' in margem1 and len(margem1) > 3:
+                    print('A prisioneira não pode ficar sozinha com nenhum membro da família!')
+                    pessoa2 = input('Quem vai com o policial? ').lower().strip()
+                if pessoa2 != 'prisioneira' and 'prisioneira' in margem1 and len(margem1) == 3:
+                    margem1.remove(pessoa)
+                    margem2.append(pessoa)
+                    margem1.remove(pessoa2)
+                    margem2.append(pessoa2)
+                    break
+                if pessoa2 != 'prisioneira' and 'prisioneira' not in margem1:
+                    if pessoa2 == 'pai' and 'mae' in margem1 and ('filho1' in margem1 or 'filho2' in margem1):
+                        print('Nenhum dos filhos pode ficar sozinho com a mãe!')
+                        pessoa2 = input('Quem vai com o policial? ').lower().strip()                        
+                    elif pessoa2 == 'mae' and 'pai' in margem1 and ('filha1' in margem1 or 'filha2' in margem1):
+                        print('Nenhuma das filhas pode ficar sozinha com o pai!')
+                        pessoa2 = input('Quem vai com o policial? ').lower().strip()    
+                    elif pessoa2 == 'filha1' and 'pai' in margem1 and 'filha2' in margem1 and 'mae' not in margem1:
+                        print('Nenhuma das filhas pode ficar sozinha com o pai!')
+                        pessoa2 = input('Quem vai com o policial? ').lower().strip()  
+                    elif pessoa2 == 'filha2' and 'pai' in margem1 and 'filha1' in margem1 and 'mae' not in margem1:
+                        print('Nenhuma das filhas pode ficar sozinha com o pai!')
+                        pessoa2 = input('Quem vai com o policial? ').lower().strip()   
+                    elif pessoa2 == 'filho1' and 'mae' in margem1 and 'filho1' in margem1 and 'pai' not in margem1:
+                        print('Nenhum dos filhos pode ficar sozinho com a mãe!')
+                        pessoa2 = input('Quem vai com o policial? ').lower().strip()  
+                    elif pessoa2 == 'filho2' and 'mae' in margem1 and 'filho2' in margem1 and 'pai' not in margem1:
+                        print('Nenhum dos filhos pode ficar sozinho com a mãe!')
+                        pessoa2 = input('Quem vai com o policial? ').lower().strip()   
+                    else:
+                        margem1.remove(pessoa)
+                        margem2.append(pessoa)
+                        margem1.remove(pessoa2)
+                        margem2.append(pessoa2)
+                        break
