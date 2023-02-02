@@ -28,3 +28,14 @@ margemB = []
 print('Daqui em diante as pessoas ficarão conhecidas como:')
 print('Pai, mae, filho1, filho2, filha1, filha2, policial e prisioneira!\n')
 print('Pessoas na margem A: ', margemA)
+
+# Funções para determinar de qual margem sairá a jangada:
+def sair_da_margem_a():
+    pessoa1 = input('Quem vai manobrar a jangada? Favor não usar acentos: ').lower().strip()
+    acao(pessoa1, margemA, margemB)
+    print('Pessoas na margem B: ', margemB)
+
+def sair_da_margem_b():
+    pessoa1 = input('Quem vai manobrar a jangada? Favor não usar acentos: ').lower().strip()
+    acao(pessoa1, margemB, margemA)
+    print('Pessoas na margem A: ', margemA)
