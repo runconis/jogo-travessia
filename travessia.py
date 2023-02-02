@@ -1,0 +1,21 @@
+from time import sleep
+
+# Introdução do jogo:
+nome = input('Olá, qual seu nome? ').title()
+sleep(0.5)
+print(f'Vamos jogar um jogo, {nome}! \n')
+sleep(1)
+print('Oito pessoas estão na margem de um rio.')
+print('Um pai, uma mãe, dois filhos, duas filhas, um policial e uma prisioneira... \n')
+sleep(1)
+print('Todas precisam atravessar o rio e há apenas uma jangada.')
+print('As regras são claras:')
+sleep(1)
+print('1. A jangada só pode carregar duas pessoas por vez.')
+print('2. Somente o pai, a mãe e o policial sabem manobrar a jangada.')
+print('3. Filhos não podem ficar com a mãe na ausência do pai em nenhuma das margens do rio.')
+print('4. Filhos não podem ser transportados pela mãe.')
+print('5. Filhas não podem ficar com o pai na ausência da mãe em nenhuma das margens do rio.')
+print('6. Filhas não podem ser transportadas pelo pai.')
+print('7. E, por último: a prisioneira não pode ficar com os membros da família na ausência do policial. \n')
+sleep(1)
